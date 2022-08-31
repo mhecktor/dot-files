@@ -2,7 +2,8 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'preservim/nerdtree'
 call vundle#end()
 filetype plugin indent on
 syntax on
