@@ -14,3 +14,4 @@ source "$znapPath/znap.zsh"  # Start Znap
 # znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source matthieusb/zsh-sdkman
+znap source bcho/Watson.zsh

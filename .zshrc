@@ -80,17 +80,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-syntax-highlighting docker docker-compose)
+plugins=(git autojump zsh-syntax-highlighting docker docker-compose pyenv kubectl)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.alias
 
 # User configuration
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 eval $(/opt/homebrew/bin/brew shellenv)
-
-PATH="/usr/local/bin:$PATH"
-PYENV_ROOT="~/.pyenv"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # ZSH_DISABLE_COMPFIX=true
 
@@ -118,8 +115,13 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+autoload -Uz compinit && compinit
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
