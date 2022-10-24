@@ -1,6 +1,6 @@
 #! /bin/sh
 
-ssh_key_file=~/.ssh/com2m-sec
+ssh_key_file=~/.ssh/sec
 echo "Generating ssh-key $ssh_key_file"
 if [ -f "$ssh_key_file" ]
 then
@@ -18,12 +18,12 @@ fi
 echo "Configure ssh"
 if test -f $ssh_key_file; then
 	echo "Printing public key to keyboard:"
-	cat ~/.ssh/com2m-sec.pub
+	cat ~/.ssh/sec.pub
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		echo "Copying com2m-sec.pub to clipboard"
+		echo "Copying sec.pub to clipboard"
 		pbcopy < $ssh_key_file.pub
 	fi
-    echo "Add SSH-Key to \nhttps://service.com2m.de/bitbucket/plugins/servlet/ssh/account/keys"
+
 	echo "creating ssh-config file"
 	if test -f ~/.ssh/config; then
 		echo "~/.ssh/config file already exists"

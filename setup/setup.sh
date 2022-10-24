@@ -14,4 +14,3 @@ echo "You need to Install harvest manually!"
 echo "Cloning repositories into ~/work/repos"
 mkdir ~/work
 mkdir ~/work/repos
-sh ./checkout-com2m-repos.sh ~/work/repos
