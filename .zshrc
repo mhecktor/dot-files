@@ -1,4 +1,4 @@
-source ~/.zsh/plugins/zsh-snap/znap.zsh
+source ~/.zsh/zsnap/zsh-snap/znap.zsh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -83,11 +83,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git autojump zsh-syntax-highlighting docker docker-compose pyenv kubectl)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.alias
+source ~/.zsh/aliases
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # User configuration
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-eval $(/opt/homebrew/bin/brew shellenv)
 
 # ZSH_DISABLE_COMPFIX=true
 
@@ -120,9 +122,7 @@ autoload -Uz compinit && compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+export VISUAL="vim"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
